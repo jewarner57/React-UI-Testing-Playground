@@ -9,9 +9,11 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    todoList.push(todo)
-    setTodo("")
+    
+    if(todo) {
+      todoList.push(todo)
+      setTodo("")
+    }
   }
 
   const deleteTodo = (name) => {
@@ -27,13 +29,13 @@ function App() {
           <input 
             className="todoInput" 
             type="text" 
-            placeholder='todo name' 
+            placeholder='Todo name' 
             value={todo} 
             onChange={(e) => setTodo(e.target.value)}
           />
           <input type="submit" value="Submit"/>
         </form>
-        <div>
+        <div className="todo-container">
           {todoList.map((value, index) => {
             return <Todo key={index} name={value} deleteTodo={deleteTodo}></Todo>
           })}
