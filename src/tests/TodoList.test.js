@@ -1,17 +1,17 @@
 import React from "react";
-import App from "../App";
+import TodoList from "../TodoList/TodoList";
 
 import { render, screen, fireEvent } from "@testing-library/react";
 
 test("Loads title, text input, and submit button.", () => {
-  render(<App />);
+  render(<TodoList />);
   screen.getByText("ToDo List");
   screen.getByPlaceholderText("Todo name");
   screen.getByText("Submit");
 });
 
 test("User can create and submit a new todo.", () => {
-  render(<App />);
+  render(<TodoList />);
   const todoContent = "Here is a new TODO"
   const input = screen.getByPlaceholderText("Todo name");
   const button = screen.getByText("Submit");
@@ -25,7 +25,7 @@ test("User can create and submit a new todo.", () => {
 });
 
 test("User can delete a TODO", () => {
-  render(<App />);
+  render(<TodoList />);
   const todoContent = "Learn how to write React Tests"
   const input = screen.getByPlaceholderText("Todo name");
   const button = screen.getByText("Submit");
